@@ -1,0 +1,12 @@
+F:\TTKDemos\WEBAPIPrjs\EFCoreCRUDLib\bin\Debug\net6.0\EFCoreCRUDLib.deps.json
+F:\TTKDemos\WEBAPIPrjs\EFCoreCRUDLib\bin\Debug\net6.0\EFCoreCRUDLib.dll
+F:\TTKDemos\WEBAPIPrjs\EFCoreCRUDLib\bin\Debug\net6.0\EFCoreCRUDLib.pdb
+F:\TTKDemos\WEBAPIPrjs\EFCoreCRUDLib\obj\Debug\net6.0\EFCoreCRUDLib.csproj.AssemblyReference.cache
+F:\TTKDemos\WEBAPIPrjs\EFCoreCRUDLib\obj\Debug\net6.0\EFCoreCRUDLib.GeneratedMSBuildEditorConfig.editorconfig
+F:\TTKDemos\WEBAPIPrjs\EFCoreCRUDLib\obj\Debug\net6.0\EFCoreCRUDLib.AssemblyInfoInputs.cache
+F:\TTKDemos\WEBAPIPrjs\EFCoreCRUDLib\obj\Debug\net6.0\EFCoreCRUDLib.AssemblyInfo.cs
+F:\TTKDemos\WEBAPIPrjs\EFCoreCRUDLib\obj\Debug\net6.0\EFCoreCRUDLib.csproj.CoreCompileInputs.cache
+F:\TTKDemos\WEBAPIPrjs\EFCoreCRUDLib\obj\Debug\net6.0\EFCoreCRUDLib.dll
+F:\TTKDemos\WEBAPIPrjs\EFCoreCRUDLib\obj\Debug\net6.0\refint\EFCoreCRUDLib.dll
+F:\TTKDemos\WEBAPIPrjs\EFCoreCRUDLib\obj\Debug\net6.0\EFCoreCRUDLib.pdb
+F:\TTKDemos\WEBAPIPrjs\EFCoreCRUDLib\obj\Debug\net6.0\ref\EFCoreCRUDLib.dll

@@ -1,0 +1,5 @@
+﻿@model MyFirstMVCoreApp.Models.Employee
+
+@Html.ActionLink("Edit", "Edit", new { id=Model.Ecode },htmlAttributes:new{@class="btn btn-primary"}) |
+@Html.ActionLink("Details", "Details", new { id=Model.Ecode },htmlAttributes:new{@class="btn btn-success"}) |
+@Html.ActionLink("Delete", "Delete", new {  id=Model.Ecode  },htmlAttributes:new{@class="btn btn-danger"})

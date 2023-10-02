@@ -1,0 +1,110 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+    var cities = new List<SelectListItem>
+    {
+        new SelectListItem{Text="Bangalore",Value="BLR"},
+        new SelectListItem{Text="Mysore",Value="MYS"},
+        new SelectListItem{Text="Chennai",Value="CHN"},
+        new SelectListItem{Text="Hyderabad",Value="HYD"},
+        new SelectListItem{Text="Delhi",Value="DLI"}
+    };
+    var hobbiesForSelection = new Dictionary<string,string>
+    {
+        {"Singing","singing" },
+        {"Dancing","dancing" },
+        {"Painting","painitng" }
+    };
+}
+
+@Html.ActionLink("Submit","Submit")
+
+
+<h4>Enter the data:</h4><hr/>
+@*<form action="/Employee/SubmitData" method="post">
+    <table>
+        <tr>
+            <td>Enter username:</td>
+            <td>
+                <input type="text" id="uname" name="uname" />
+            </td>
+        </tr>
+        <tr>
+            <td>Enter password:</td>
+            <td>
+                <input type="password" id="password" name="password" />
+            </td>
+        </tr>
+        <tr>
+            <td>Select gender:</td>
+            <td>
+                <input type="radio" id="gender" name="gender" value="M" /><span>Male</span>
+                <input type="radio" id="gender" name="gender" value="F" /><span>Female</span>
+            </td>
+        </tr>
+        <tr>
+            <td>Select City:</td>
+            <td>
+                <select id="city" name="city">
+                    <option value="BLR">Bangalore</option>
+                    <option value="MYS">Mysore</option>
+                    <option value="CHN">Chennai</option>
+                    <option value="HYD">Hyderabad</option>
+                </select>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <input type="checkbox" id="hobbies" name="hobbies" value="singing" /><span>Singing</span>
+                <input type="checkbox" id="hobbies" name="hobbies" value="dancing" /><span>Dancing</span>
+                <input type="checkbox" id="hobbies" name="hobbies" value="painting" /><span>Painting</span>
+            </td>
+        </tr>
+    </table>
+    <input type="submit" value="Submit" />
+</form>*@
+
+@using(Html.BeginForm("SubmitData","Employee",FormMethod.Post))
+{
+    <table>
+        <tr>
+            <td>Enter username:</td>
+            <td>
+                @Html.TextBox("uname")
+            </td>
+        </tr>
+        <tr>
+            <td>Enter password:</td>
+            <td>
+                @Html.Password("password")
+            </td>
+        </tr>
+        <tr>
+            <td>Select gender:</td>
+            <td>
+                @Html.RadioButton("gender","M")<span>Male</span>
+                @Html.RadioButton("gender","F")<span>Female</span>
+            </td>
+        </tr>
+        <tr>
+            <td>Select City:</td>
+            <td>
+                @Html.DropDownList("city",cities)
+           </td>
+        </tr>
+        <tr>
+            <td>
+                Select hobbies:
+            </td>
+            <td>
+                @foreach (var item in hobbiesForSelection)
+                {
+                    @Html.CheckBox("hobbies",item)<span>@item.Value</span>
+                }
+                
+            </td>
+        </tr>
+    </table>
+    <input type="submit" value="Submit" />
+}

@@ -1,0 +1,51 @@
+﻿@model MyFirstMVCoreApp.Models.Register
+
+@{
+    ViewData["Title"] = "SubmitData";
+}
+
+<h1>SubmitData</h1>
+
+<div>
+    <h4>Details of User Registration</h4>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.uname)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.uname)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.password)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.password)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.gender)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.gender)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.city)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.city)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.hobbies)
+        </dt>
+        <dd class="col-sm-10">
+            @foreach (var hobby in Model.hobbies)
+            {
+                <span>@hobby,</span>
+            }
+        </dd>
+    </dl>
+</div>
+<div>
+    @Html.ActionLink("Edit", "Edit", new { /* id = Model.PrimaryKey */ }) |
+    <a asp-action="Index">Back to List</a>
+</div>

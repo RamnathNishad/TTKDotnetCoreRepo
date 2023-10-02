@@ -1,0 +1,36 @@
+﻿@model IEnumerable<MyFirstMVCoreApp.Models.Employee>
+
+@{
+    ViewData["Title"] = "DisplayEmps";
+    
+}
+
+<h1>DisplayEmps</h1>
+
+<p>
+    <a asp-action="Create" class="btn btn-success">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Ecode)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Ename)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Salary)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Deptid)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+            Html.RenderPartial("_EmployeeItemView",item);
+        }
+    </tbody>
+</table>

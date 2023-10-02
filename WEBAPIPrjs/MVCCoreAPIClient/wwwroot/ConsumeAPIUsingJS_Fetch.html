@@ -1,0 +1,48 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <script src="js/site.js"></script>    
+</head>
+<body>
+    <h1>Consuming WEB API using JavaScript Fetch() function</h1><hr/>
+    <div id="d1"></div>
+    <input type="button" value="Get All Emps" onclick="getEmps()" />
+
+    <table border="1" width="40%">
+        <tr>
+            <th>Enter ecode:</th>
+            <td>
+                <input type="text" id="ecode" name="ecode" />
+            </td>
+        </tr>
+        <tr>
+            <th>Enter ename:</th>
+            <td>
+                <input type="text" id="ename" name="ename" />
+            </td>
+        </tr>
+        <tr>
+            <th>Enter salary:</th>
+            <td>
+                <input type="text" id="salary" name="salary" />
+            </td>
+        </tr>
+        <tr>
+            <th>Enter deptid:</th>
+            <td>
+                <input type="text" id="deptid" name="deptid" />
+            </td>
+        </tr>
+        <tr>
+            <th>
+                <p id="msg" style="color:red"></p>
+            </th>
+            <td>
+                <input type="button" value="Insert" onclick="addEmp()" />
+            </td>
+        </tr>
+    </table>
+</body>
+</html>

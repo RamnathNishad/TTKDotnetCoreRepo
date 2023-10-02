@@ -1,0 +1,15 @@
+F:\TTKDemos\MVCCorePrjs\LinqDemos\bin\Debug\net6.0\LinqDemos.exe
+F:\TTKDemos\MVCCorePrjs\LinqDemos\bin\Debug\net6.0\LinqDemos.deps.json
+F:\TTKDemos\MVCCorePrjs\LinqDemos\bin\Debug\net6.0\LinqDemos.runtimeconfig.json
+F:\TTKDemos\MVCCorePrjs\LinqDemos\bin\Debug\net6.0\LinqDemos.dll
+F:\TTKDemos\MVCCorePrjs\LinqDemos\bin\Debug\net6.0\LinqDemos.pdb
+F:\TTKDemos\MVCCorePrjs\LinqDemos\obj\Debug\net6.0\LinqDemos.csproj.AssemblyReference.cache
+F:\TTKDemos\MVCCorePrjs\LinqDemos\obj\Debug\net6.0\LinqDemos.GeneratedMSBuildEditorConfig.editorconfig
+F:\TTKDemos\MVCCorePrjs\LinqDemos\obj\Debug\net6.0\LinqDemos.AssemblyInfoInputs.cache
+F:\TTKDemos\MVCCorePrjs\LinqDemos\obj\Debug\net6.0\LinqDemos.AssemblyInfo.cs
+F:\TTKDemos\MVCCorePrjs\LinqDemos\obj\Debug\net6.0\LinqDemos.csproj.CoreCompileInputs.cache
+F:\TTKDemos\MVCCorePrjs\LinqDemos\obj\Debug\net6.0\LinqDemos.dll
+F:\TTKDemos\MVCCorePrjs\LinqDemos\obj\Debug\net6.0\refint\LinqDemos.dll
+F:\TTKDemos\MVCCorePrjs\LinqDemos\obj\Debug\net6.0\LinqDemos.pdb
+F:\TTKDemos\MVCCorePrjs\LinqDemos\obj\Debug\net6.0\LinqDemos.genruntimeconfig.cache
+F:\TTKDemos\MVCCorePrjs\LinqDemos\obj\Debug\net6.0\ref\LinqDemos.dll

@@ -1,0 +1,34 @@
+html {
+  font-size: 14px;
+}
+
+@media (min-width: 768px) {
+  html {
+    font-size: 16px;
+  }
+}
+
+html {
+  position: relative;
+  min-height: 100%;
+}
+
+body {
+  margin-bottom: 60px;
+}
+
+.field-validation-error{
+    background-color:yellow;
+    font-weight:bold;
+}
+
+.input-validation-error{
+    border: 2px solid red;
+
+}
+.validation-summary-errors{
+    background-color:aqua;
+    color:green;
+    font-weight:bold;
+    font-style:italic;
+}

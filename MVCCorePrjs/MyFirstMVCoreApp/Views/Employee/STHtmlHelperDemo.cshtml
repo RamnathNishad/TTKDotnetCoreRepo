@@ -1,0 +1,59 @@
+﻿@model MyFirstMVCoreApp.Models.Register
+
+@{
+    ViewData["Title"] = "STHtmlHelperDemo";
+}
+
+<h1>STHtmlHelperDemo</h1>
+
+<h4>Register</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="SubmitData">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="uname" class="control-label"></label>
+                <input asp-for="uname" class="form-control" />
+                <span asp-validation-for="uname" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="password" class="control-label"></label>
+                <input asp-for="password" class="form-control" />
+                <span asp-validation-for="password" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="gender" class="control-label">Select Gender:</label>
+                @Html.RadioButtonFor(modelItem=>modelItem.gender,"M","Male")Male
+                @Html.RadioButtonFor(modelItem=>modelItem.gender,"F","Female")Female
+                <span asp-validation-for="gender" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="city" class="control-label">Select City:</label>
+                @Html.DropDownListFor(modelItem=>modelItem.city,Model.cities)
+                <span asp-validation-for="city" class="text-danger"></span>
+            </div>
+             <div class="form-group">
+                <label asp-for="hobbies" class="control-label">Select hobbies:</label>
+                @foreach (var item in Model.hobbiesForSelection)
+                {
+                    @Html.CheckBox("hobbies",item)<span>@item.Value</span>
+                }
+                <span asp-validation-for="city" class="text-danger"></span>
+            </div>
+
+
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

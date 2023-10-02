@@ -1,0 +1,44 @@
+﻿@model IEnumerable<AssignmentTicketBooking.Models.SeatingSection>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+@if(ViewData["msg"]!=null)
+{
+    <p>@ViewData["msg"].ToString()</p>
+}
+<br/>
+<h1>Ticket Booking</h1>
+
+<table style="border-style:solid;border-width:1px">
+    <thead>
+        <tr>           
+            <th>
+                Seating Type
+            </th>
+            <th>
+                Ticket Cost
+            </th>
+            <th>
+                Number of seats
+            </th>           
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>           
+            <td>
+                @Html.DisplayFor(modelItem => item.SeatingType)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Cost)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.NoOfTickets)
+            </td>          
+        </tr>
+}
+    </tbody>
+</table>
+@Html.ActionLink("Book","Update","Home",htmlAttributes:new {@class="btn btn-primary"})

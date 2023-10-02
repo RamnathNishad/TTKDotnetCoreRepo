@@ -1,0 +1,52 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <script src="lib/jquery/dist/jquery.min.js"></script>
+    <script src="js/site.js"></script>
+</head>
+<body>
+    <h1>Consuming WEB API using JavaScript AJAX function</h1><hr />
+    <div id="d1"></div>
+    <input type="button" value="Get All Emps" onclick="getEmpsAJAX()" />
+
+    <table border="1" width="40%">
+        <tr>
+            <th>Enter ecode:</th>
+            <td>
+                <input type="text" id="ecode" name="ecode" />
+                <input type="button" value="Find by id" onclick="getEmpById()" />
+            </td>
+        </tr>
+        <tr>
+            <th>Enter ename:</th>
+            <td>
+                <input type="text" id="ename" name="ename" />
+            </td>
+        </tr>
+        <tr>
+            <th>Enter salary:</th>
+            <td>
+                <input type="text" id="salary" name="salary" />
+            </td>
+        </tr>
+        <tr>
+            <th>Enter deptid:</th>
+            <td>
+                <input type="text" id="deptid" name="deptid" />
+            </td>
+        </tr>
+        <tr>
+            <th>
+                <p id="msg" style="color:red"></p>
+            </th>
+            <td>
+                <input type="button" value="Insert" onclick="addEmpAJAX()" />
+                <input type="button" value="Delete" onclick="deleteEmpById()" />
+                <input type="button" value="Update" onclick="updateEmp()" />
+            </td>
+        </tr>
+    </table>
+</body>
+</html>

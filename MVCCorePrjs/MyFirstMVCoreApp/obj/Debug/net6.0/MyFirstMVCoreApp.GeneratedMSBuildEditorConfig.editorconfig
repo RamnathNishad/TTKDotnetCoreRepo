@@ -1,0 +1,93 @@
+is_global = true
+build_property.TargetFramework = net6.0
+build_property.TargetPlatformMinVersion = 
+build_property.UsingMicrosoftNETSdkWeb = true
+build_property.ProjectTypeGuids = 
+build_property.InvariantGlobalization = 
+build_property.PlatformNeutralAssembly = 
+build_property.EnforceExtendedAnalyzerRules = 
+build_property._SupportedPlatformList = Linux,macOS,Windows
+build_property.RootNamespace = MyFirstMVCoreApp
+build_property.RootNamespace = MyFirstMVCoreApp
+build_property.ProjectDir = F:\TTKDemos\MVCCorePrjs\MyFirstMVCoreApp\
+build_property.RazorLangVersion = 6.0
+build_property.SupportLocalizedComponentNames = 
+build_property.GenerateRazorMetadataSourceChecksumAttributes = 
+build_property.MSBuildProjectDirectory = F:\TTKDemos\MVCCorePrjs\MyFirstMVCoreApp
+build_property._RazorSourceGeneratorDebug = 
+
+[F:/TTKDemos/MVCCorePrjs/MyFirstMVCoreApp/Views/Account/Login.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWNjb3VudFxMb2dpbi5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[F:/TTKDemos/MVCCorePrjs/MyFirstMVCoreApp/Views/Employee/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRW1wbG95ZWVcQ3JlYXRlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[F:/TTKDemos/MVCCorePrjs/MyFirstMVCoreApp/Views/Employee/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRW1wbG95ZWVcRGV0YWlscy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[F:/TTKDemos/MVCCorePrjs/MyFirstMVCoreApp/Views/Employee/DisplayEmps.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRW1wbG95ZWVcRGlzcGxheUVtcHMuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[F:/TTKDemos/MVCCorePrjs/MyFirstMVCoreApp/Views/Employee/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRW1wbG95ZWVcRWRpdC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[F:/TTKDemos/MVCCorePrjs/MyFirstMVCoreApp/Views/Employee/Home.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRW1wbG95ZWVcSG9tZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[F:/TTKDemos/MVCCorePrjs/MyFirstMVCoreApp/Views/Employee/HtmlHelperDemo.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRW1wbG95ZWVcSHRtbEhlbHBlckRlbW8uY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[F:/TTKDemos/MVCCorePrjs/MyFirstMVCoreApp/Views/Employee/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRW1wbG95ZWVcSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[F:/TTKDemos/MVCCorePrjs/MyFirstMVCoreApp/Views/Employee/Second.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRW1wbG95ZWVcU2Vjb25kLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[F:/TTKDemos/MVCCorePrjs/MyFirstMVCoreApp/Views/Employee/STHtmlHelperDemo.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRW1wbG95ZWVcU1RIdG1sSGVscGVyRGVtby5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[F:/TTKDemos/MVCCorePrjs/MyFirstMVCoreApp/Views/Employee/SubmitData.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRW1wbG95ZWVcU3VibWl0RGF0YS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[F:/TTKDemos/MVCCorePrjs/MyFirstMVCoreApp/Views/Employee/Third.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRW1wbG95ZWVcVGhpcmQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[F:/TTKDemos/MVCCorePrjs/MyFirstMVCoreApp/Views/Shared/Error.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXEVycm9yLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[F:/TTKDemos/MVCCorePrjs/MyFirstMVCoreApp/Views/Shared/_EmployeeActionItemView.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9FbXBsb3llZUFjdGlvbkl0ZW1WaWV3LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[F:/TTKDemos/MVCCorePrjs/MyFirstMVCoreApp/Views/Shared/_EmployeeItemView.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9FbXBsb3llZUl0ZW1WaWV3LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[F:/TTKDemos/MVCCorePrjs/MyFirstMVCoreApp/Views/Shared/_ValidationScriptsPartial.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[F:/TTKDemos/MVCCorePrjs/MyFirstMVCoreApp/Views/_ViewImports.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[F:/TTKDemos/MVCCorePrjs/MyFirstMVCoreApp/Views/_ViewStart.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdTdGFydC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[F:/TTKDemos/MVCCorePrjs/MyFirstMVCoreApp/Views/Shared/_Layout.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9MYXlvdXQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = b-qw9vsed6ve

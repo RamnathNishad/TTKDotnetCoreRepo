@@ -1,0 +1,607 @@
+MVC:- Model-View-Controller is a design pattern for developing applications to have more modularity, testability and reusability of the code. Separation of responsibility is better.
+
+Model:- Data models representing the application entities and DataAccess Layer
+View:- Html response as an output
+Controller:- Processing the request from user. 
+
+user---Request------>Controller---->Methods(Action) uses Model----->Return View---->Response
+
+Ways to pass data from action to views:
+1) ViewData:- This is available only upto its action to view, cannot be accessed across views and actions. Needs type-casting while accessing.
+
+2) ViewBag:- It is of dynamic type. No need to type-cast but intelligence will not be there in Visual Studio. Its scope is same as ViewData i.e. from its action to view but not across actions and views.
+
+3) TempData:- It's scope is across actions and controllers and views also.
+It gets removed from the memory once it is accessed inside the view.
+If we want to retain the tempdata, we have mark with keep() method: TempData.Keep()
+
+
+Two types of views:
+1) Weakly-typed views:- There is no model binded.
+2) Strongly-typed views:- Model type is binded with the views using a statement:
+	@model <<type-name-of-model-class>>.
+
+It supports scaffolding feature to generate template-based UI automatically for all the CRUD(Create,Read,Update,Delete) operations
+Note: instance of model is accessed using a keyword "Model".
+
+
+============================Data Access Layer=======================================
+Entityframework:- used for data access and manipulation along with the Linq syntaxes.
+
+Steps:
+1) Install the following packages fron Nuget repository
+	-Microsoft.EntityframeworkCore
+	-Microsoft.EntityframeworkCore.SqlServer (for MS Sql Server database)
+2) Define model class reprensenting the table in database and DbContext class to configure with database server
+	class Employee
+	{
+		public int Ecode{get;set;}
+		public string Ename {get;set;}
+		public int Salary{get;set;}
+		public int Deptid {get;set;}
+	}
+
+	class EmpDbContext : DbContext
+	{
+		
+		public EmpDbContext(DbContextOption<EmpDbContext> options) : base(options)
+		{
+
+		}
+		
+		public DbSet<Employee> Employee{get;set;}
+	}
+
+3) Define the connection string for the DbContext to Sql Server in the Program.cs 
+	
+4) Define the DataAccess Layer class for all the operations needed for the application and use the DbContext class for all these operaions
+5) Use the DataAccess Layer class inside the Controller action method to provide data as per views.
+	-Dependency injection : using this service u will inject the instance of DataAccess layer class inside the controller
+
+======================LINQ====================================
+Language Integrated Query: 
+
+SQL query:- 
+RDBMS->Sql Server, Oracle, MySql and so on.
+XML:- XQuery----> node based queries
+Collections:-library methods
+
+.NET 3.5 -----LINQ + EF =Queries and DML
+
+Two syntaxes of LINQ:-
+1) using the query operators:- select, from, where, orderby, join etc
+2) using extension methods combinds lambda expressions:- only methods like Select(),Where(),Find(),OrderBy(),Join(),Distinct()
+
+
+===================ASP.NET MVC Core Model Validations==============================
+1) Client-side validations:- Input should be validated at browser level using jQuery(javascript)
+We use annotation based validation attributes with Model class.
+ASP.NET MVC framework will use jquery validation library to validate the fields of the model.
+
+2) Server-side validations:- we post data from browser to server (controller action) and perform server-side validation using an object "ModelState". It has a boolean property "IsValid" which gets set to "false" whenever any error is added to any of the properties of the model as below:
+	//if data is invalid add the error to the ModelState
+	ModelState.AddModelError("Ecode","employee code already exist")
+
+ 
+====================Partial Views==========================
+-It is used to have a view that can be sharable and reusable
+-It also helps to break a complex view into smalled partial views for better readability and handling.
+-Naming convention is used for partial view as _view-name and default location is under the folder "Views/Shared"
+ 
+Calling partial view:
+1) Html.RenderPartial("_viewname",obj):- This is used for rendering the view directly into the parent view. It has return type as void.
+2) Html.Partial("_viewname",obj):- This is used to return the html of view into parent view instead of directly rendering the view. It's return type is MvcHtml content. You can also store into variable if u want to process the returned html before giving to the parent view.
+Note: If the view is a strongly-typed view then its model instance also must be passed else it will utilize the parent model instance automatically.
+
+
+_ViewImports.cshtml:- It is a special view file which is used to globally import the namespaces that are needed in most of the views.
+
+_ViewStart.cshtml:- It is a special view which is executed automatically before each view is called. Normally used for some comman statements or layout linking statements inside this _viewstart file.
+ 
+Shared/_Layout.cshtml:- is a layout file to provide the commong page structure to the views.
+(Html of view) + (layout html)=final html of the views
+
+@RenderBody() :- inside the layout file embedds the html of the view. There can be only one renderbody inside the layout.
+
+
+
+
+=======================html Helper classes============================
+These are used to generate html elements in a shorter syntax i.e. razor view syntax.
+
+<label for="ecode">Ecode</label>
+<input type="text" id="ecode" name="ecode" />
+
+@Html.Label("ecode","Ecode")
+@Html.TextBox("ecode")
+
+
+
+=================ADO.NET==============
+two modes of operations:-
+1) Connected mode: connection shud always be active till u r manipulating and reading the data from backend database
+
+System.Data.SqlClient------------->MS Sql Server database
+	SqlConnection
+	SqlCommand-------->configure and execute SQL statements like SELECT,DELETE,UPDATE,INSERT and Stored 			Procedure
+	SqlDataReader-----> Recordset to traverse records
+
+Steps to operation database in Connected mode:
+1) configure connection details
+2) configure sql command
+3) attach connection with command
+4) open the connection
+5) execute the command and use the result
+6) close the connection
+ 	
+
+2) Disconnected mode:- we pull records into memory using connection then we close the connection and all operations like reading and manipulating is done in the memory only. Once every is done, we reopen connection and save changes to database and again close the connection.
+
+
+
+
+cmd------->ExecuteReader(), ExecuteNonQuery(), 
+ExecuteScalar()-----------> it returns the first column of the first row directly, no need to traverse for this.
+usage:
+	select sum(salary) from employee---------------return only one value
+
+int totalSal=(int)cmd.ExecuteScalar();
+
+//OR
+SqlDataReader sdr=cmd.ExecuteReader();
+if(sdr.Read())
+{
+	var totalSal=(int)sdr[0];
+}
+
+
+
+
+
+
+
+
+-------------------------Routing services in ASP.NET MVC Core-----------------------------
+
+
+Controller-----Home
+Action----Index
+
+localhost/Employee/Index
+
+
+Route constraints:-
+
+==============================ASP.NET WEB API===========================
+API->Application Programming Interface
+
+Client<--------------------->Server
+
+It is a service over HTTP protocol.
+WEB API service follows some design specifications:-
+1) It shud not be binded with a particular kind of client i.e. it shud not worry about who is consuming the service
+2) Resources accessed through the api service should be based on some uri(Uniform resource indication)
+3) Content negotiation:- WEB APIs are configured with different MediaTypeFormatters to send the response in different types of request by different clients. If the requested format is not configured inside the web api then it shud give the response in a default format
+
+ASP.NET Core WEB API:-
+-Routing
+-Dependency Injection
+-Authentication and Authorization
+-MVC pattern-Views
+-Middlewares configurations
+
+
+Default MediaTypeFormatters available in ASP.NET WEB API: JSON,XML and BSON(Binary JSON)
+
+
+
+=========================Consuming Web API from MVC Core Web Application========
+-We need HttpClient to send request to API service and get the response.
+It has methods for GET,POST,PUT and DELETE as well.
+
+===================Consuming WEB API using client-side=================
+-Consuming web api using AJAX i.e. Jquery library 
+-Consume using JavaScript method Fetch method
+
+-CORS policy:- CROSS-ORIGIN-RESOURCE-SHARING policy does not allow clients from different domain to access the web api.
+We need enable the cors policy in web api and configure to allow the clients who can access the api.
+
+Steps:
+1) enable cors in Program.cs for web api and type of methods, headers etc
+ //enable CORS policy for clients access
+            builder.Services.AddCors(options =>
+            {
+                options.AddPolicy("clients-allowed", opt =>
+                {
+                    opt.WithOrigins("http://localhost:5291")
+                    .AllowAnyHeader()
+                    .AllowAnyMethod();
+                });
+            });
+            
+//use the cors policy
+	app.UseCors("clients-allowed");
+
+2) use either Fetch() of vanilla javascript code or jquery AJAX library
+ 
+
+3) in AJAX request: 
+	a) dataType:"json" is used for asking the response format from web api
+	b) contentType:"application/json" is used for sending data to the api server in json format
+
+======sampe code for POST AJAX request=====================
+ $.ajax({
+        url: 'http://localhost:5018/api/Employees/',
+        type: "POST",
+        //dataType: "json", //this is used to get response format json
+        data: JSON.stringify(empObj),
+        contentType: 'application/json', //this is used to send data in json format
+        success: function (res) {
+            document.getElementById("msg").innerHTML = "Record inserted";
+            getEmps();
+        },
+        error: function (err) {
+            document.getElementById("msg").innerHTML = err;
+        }
+    });
+
+
+
+
+===========sample code for fetch() for POST request:===============
+fetch('https://jsonplaceholder.typicode.com/posts', {
+  method: 'POST',
+  body: JSON.stringify(empObj),
+  headers: {
+    'Content-type': 'application/json; charset=UTF-8',
+  }
+  });
+
+
+
+-----------------------------Authentication and Authorization-----------------
+Authentication : Verifying the users credential whether user is a valid user of not.
+Authorization:- what an authentication user is allowed to do and what is not allowed.
+
+We can secure the particular actions or we can secure the whole controller
+How to de secure the controllers and actions:-
+1) add services and middlewares in Program.cs 
+2) add [Authorize] attribute to the controller and actions which we want to secure.
+
+ASP.NET Core 6 JSON Web Tokens-------Secure your API
+=================================================================================
+What is JSON WEB TOKENS?
+*You want data sent between two parties to be digitally signed and either party can confirm of it's authenticity
+
+*We can use this technology to implement authentication and Authorization in any API in any programming language.
+
+Steps:
+1. Lets create a Don Net API 6 API application
+
+2. We need to install packages that will enable us to use JWT
+	=> Microsoft.AspNetCore.Authentication.JwtBearer
+	=> System.IdentityModel.Tokens.Jwt
+
+3. We need to add the secret keys and other values that qualify it. This will be used when generating the token
+		"JWT": {
+		"Key": "There is only one GOD",
+		"Issuer":"https://ttkprestige.com",
+		"Audience":"ttkprestige.com"
+			}
+-copy these details in appsettings.json file
+
+
+4. Since our application will depend on JWT, we need to Add it to the application program.cs file
+
+builder.Services.AddAuthentication(x=>
+{
+	x.DefaultAuthenticationScheme=JwtBearerDefaults.AuthenticationScheme;
+	x.DefaultChallengeScheme=JwtBearerDefaults.AuthenticationSchene;
+}).AddJwtBearer(o=>
+{
+	var key=Encoding.UTF8.GetBytes(builder.Configuration["JWT:Key"]);
+	o.SaveToken=true;
+	o.TokenValidationParameters=new TokenValidationParameters
+	{
+		ValidateIssuer=true,
+		ValidateAudience=true,
+		ValidateLifetime=true,
+		ValidateIssuerSigningKey=true,
+		ValidIssuer=builder.Configuration["JWT:Issuer"],
+		ValidAudience=builder.Configuration["JWT:Audience"],
+		IssuerSigningKey=new SymmetricSecurityKey(key)
+	};
+});
+
+
+5. Lets add authentication
+	
+//make sure to add these lines before app.Run()
+app.UseAuthentication(); //make sure it is before Authorization
+app.UseAuthorization();
+
+6. Create models folder with Users and Token classes
+
+public class Users
+{
+
+	public string Name {get;set;}
+	public string Password {get;set;}
+} 
+
+If user is successfully authenticated, Token will be generated
+
+public class Tokens
+{
+	public string Token {get;set;}
+}
+
+
+7. Create a repository folder for the JWT Creation
+
+public interface ITokenRepository
+{
+	Tokens Authenticate(Users users);
+}
+
+//create a repository class and inject Configuraton and User DAL instance:
+
+public class TokenRepository : ITokenRepository
+{	
+	private readonly IConfiguration _configuration;
+ 	private readonly IUsersADO _usersADO;
+ 	public TokenRepository(IConfiguration configuration, IUsersADO usersADO)
+ 	{
+     		_configuration = configuration;
+     		_usersADO = usersADO;
+ 	}	
+
+	public Tokens Authenticate(Users users)
+	{
+		if (!_usersADO.IsValidUser(users))
+		{
+    			return null;
+		}
+		else
+		{
+    			//else return valid token
+    			//Generate JSON Web Token
+    			var tokenHandler = new JwtSecurityTokenHandler();
+
+    			var tokenKey = Encoding.UTF8.GetBytes(_configuration["JWT:Key"]);
+
+    			var tokenDescriptor = new SecurityTokenDescriptor
+    			{
+        			Issuer = _configuration["JWT:Issuer"],
+        			Audience = _configuration["JWT:Audience"],
+        			Expires = DateTime.UtcNow.AddMinutes(10),
+        			SigningCredentials = new SigningCredentials(new SymmetricSecurityKey(tokenKey), SecurityAlgorithms.HmacSha256Signature)
+    			};
+
+    			var token = tokenHandler.CreateToken(tokenDescriptor);
+    			return new Tokens { Token = tokenHandler.WriteToken(token) };
+		}
+	}
+}
+
+//UserADO DAL
+public interface IUsersADO
+{
+    bool IsValidUser(Users user);
+}
+
+public class UsersADO : IUsersADO
+{
+    SqlConnection con;
+    SqlCommand cmd;
+
+    private readonly IConfiguration _configuration;
+    public UsersADO(IConfiguration configuration)
+    {
+        _configuration = configuration;
+        con = new SqlConnection();
+        con.ConnectionString = _configuration.GetConnectionString("sqlcon"); //this will be stored in appsettings.json
+    }
+    public bool IsValidUser(Users user)
+    {
+        cmd = new SqlCommand();
+        cmd.CommandText = "select username,password from tbl_users where username=@uname and password=@pwd";
+        cmd.Parameters.Clear();
+        cmd.Parameters.AddWithValue("@uname", user.Name);
+        cmd.Parameters.AddWithValue("@pwd", user.Password);
+
+        cmd.Connection = con;
+        con.Open();
+
+        SqlDataReader sdr = cmd.ExecuteReader();
+        if(sdr.Read())
+        {
+            con.Close();
+            return true;
+        }
+
+        con.Close();
+        return false;
+    }
+}
+// In program.cs, we should configure dependency injection for the User DAL instance
+
+8. Create controller Sample and use [Authorize] at class level and [AllowAnonymous] for Authenticate method. Also inject the Token Repository instance. 
+
+[Authorize]
+[Route("api/[controller]")]
+[ApiController]
+public class SampleController : ControllerBase
+{
+    private readonly ITokenRepository _tokenRepository;
+    public SampleController(ITokenRepository tokenRepository)
+    {
+        _tokenRepository = tokenRepository;
+    }
+
+    // GET: api/<SampleController>
+    [HttpGet]        
+    public IEnumerable<string> Get()
+    {
+        return new string[] { "value1", "value2" };
+    }
+
+    [AllowAnonymous]
+    [HttpPost]
+    [Route("authenticate")]
+    public IActionResult Authenticate(Users userData)
+    {
+        var token=_tokenRepository.Authenticate(userData);
+        if(token == null)
+        {
+            return Unauthorized();
+        }
+        else
+        {
+            return Ok(token);
+        }
+    }
+
+}
+
+// In program.cs, we should configure dependency injection for the TokenRepository instance
+
+
+
+=======================Error Handling in ASP.NET Core WEB API=================================
+public class ApiResponse<T>
+{
+    public bool Success { get; set; }
+    public T Data { get; set; }
+    public string ErrorMessage { get; set; }
+    public ApiResponse()
+    {
+        Success = true;
+    }
+}
+
+The ApiResponse<T> model includes the Success flag, Data to hold the response data, and ErrorMessage to provide details in case of errors.
+
+
+Integrating the ApiResponse Model
+Now, let's see how we can seamlessly integrate the ApiResponse model into our ASP.NET Web API controllers to manage different types of responses.
+
+public class UserController : ApiController
+{
+    private UserService _userService;    
+    public UserController()
+    {
+        _userService = new UserService();
+    }
+
+    public IHttpActionResult Post(UserModel user)
+    {
+        ApiResponse<string> response = new ApiResponse<string>();
+        try
+        {
+            // Call the UserService to create a new user
+            _userService.CreateUser(user);
+            response.Data = "User created successfully!";
+        }
+        catch (Exception ex) when (ex is ValidationException || ex is InternalServerErrorException)
+        {
+            // Handle both ValidationException and InternalServerErrorException here
+            response.Success = false;
+            response.ErrorMessage = ex.Message;
+        }
+        catch (Exception ex)
+        {
+            // Log other unexpected exceptions
+            LogException(ex);
+            response.Success = false;
+            response.ErrorMessage = "An unexpected error occurred.";
+        }
+        return Ok(response);
+    }
+}
+
+Handling Exceptions
+Structured exception handling is vital for maintaining API reliability. In the service layer, we throw custom exceptions for different scenarios, such as validation errors or internal server issues.
+
+public class UserService
+{
+    public void CreateUser(UserModel user)
+    {
+        try
+        {
+            if (string.IsNullOrWhiteSpace(user.Name) ||
+                string.IsNullOrWhiteSpace(user.Email) ||
+                user.Age <= 0)
+            {
+                throw new ValidationException("Name, Email, and Age are required fields.");
+            }
+            // Process user data
+        }
+        catch (ValidationException)
+        {
+            throw;
+        }
+        catch (Exception ex)
+        {
+            LogException(ex);
+            throw new InternalServerErrorException("An internal server error occurred.");
+        }
+    }
+}
+
+Logging and Debugging
+
+Logging exceptions is a critical aspect of error management. By utilizing the LogException method, we capture vital information for debugging and identifying potential issues.
+
+private void LogException(Exception ex)
+{
+    // Implement your custom logging mechanism here
+    // Log the exception details, including message, stack trace, and relevant information
+}
+ 
+
+======================Global Exception Handling======================
+
+using System.Text.Json;
+
+
+ class GlobalExceptionHanlder : IMiddleware
+ {
+   
+     public async Task InvokeAsync(HttpContext context, RequestDelegate next)
+     {
+         try
+         {
+             await next(context);
+         }
+         catch (Exception ex)
+         {
+             ProblemDetails details = new ProblemDetails
+             {
+                 Status = (int)System.Net.HttpStatusCode.InternalServerError,
+                 Detail = "Some error occurred:" + ex.Message,
+                 Type = "Server error",
+                 Title = "Internal server error"
+             };
+
+             context.Response.ContentType = "application/json";
+             await context.Response.WriteAsync(JsonSerializer.Serialize(details));
+         }
+     }
+ }
+
+
+
+builder.Services.AddScoped<GlobalExceptionHanlder>();
+
+ app.UseMiddleware<GlobalExceptionHanlder>();
+
+
+
+
+
+
+
+
+
+

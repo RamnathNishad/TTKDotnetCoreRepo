@@ -1,0 +1,11 @@
+{
+  "Version": 1,
+  "Hash": "aip9RsZFK3ceoZ0hSrOTPjcruv5mw55X0udhmiGXE2s=",
+  "Source": "SecuringWebAPI",
+  "BasePath": "_content/SecuringWebAPI",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [],
+  "Assets": []
+}

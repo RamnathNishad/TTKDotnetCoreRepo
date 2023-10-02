@@ -1,0 +1,58 @@
+﻿@model IEnumerable<Assignment3MVCLabHallBudget.Models.Hall>
+
+@{
+    ViewData["Title"] = "Search";
+}
+
+@if(Model.ToList().Count==0)
+{
+    <p style="color:red">No halls found with the budget!!!</p>
+}
+else
+{
+<h1 style="text-align:center">Hall Details</h1>
+<br/>
+
+<table class="table table-bordered">
+    <thead>
+        <tr>           
+            <th>
+                Hall name
+            </th>
+            <th>
+                Owner name
+            </th>
+            <th>
+                Cost per day
+            </th>
+            <th>
+                Mobile no
+            </th>
+            <th>
+                Address
+            </th>           
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>           
+            <td>
+                @Html.DisplayFor(modelItem => item.hallName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ownerName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.costPerDay)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.mobile)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.address)
+            </td>            
+        </tr>
+}
+    </tbody>
+</table>
+}
